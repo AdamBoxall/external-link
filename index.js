@@ -3,7 +3,8 @@
 function external(node) {
   if (!node || !node.getAttribute) return false;
 
-  if (node.getAttribute('target') === '_blank') return true;
+  var target = node.getAttribute('target');
+  if (target && target !== '_self') return true;
 
   if (node.getAttribute('rel') === 'external') return true;
 

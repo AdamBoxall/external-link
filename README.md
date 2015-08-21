@@ -9,7 +9,7 @@ A simple function that tells you whether a link DOM node is 'external'.
 
 A link is external if it:
 * has the attribute rel="external"
-* has the attribute target="\_blank"
+* has a target attribute with a value other than "\_self"
 * is an absolute link
 * is a telephone link
 * is a mailto link

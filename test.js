@@ -154,6 +154,20 @@ describe('External link', function() {
     });
   });
 
+  it('should know a link with target="_self" is not external', function(done) {
+    makeLinkNode({url: '/test', target: '_self'}, function(err, link) {
+      assert.equal(external(link), false);
+      done();
+    });
+  });
+
+  it('should know a link with a named target is external', function(done) {
+    makeLinkNode({url: '/test', target: 'test'}, function(err, link) {
+      assert(external(link));
+      done();
+    });
+  });
+
   it('should know a link with rel="external" is external', function(done) {
     makeLinkNode({url: 'http://github.com', rel: 'external'}, function(err, link) {
       assert(external(link));
